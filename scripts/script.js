@@ -11,7 +11,7 @@ $(document).ready(function() {
             setTimeout(function() {
                 hasGP = true;
                //console.log(gp);
-            }, 2000);
+            }, 3000);
         };
         //console.log(gamepads);
         window.requestAnimationFrame(gameLoop);

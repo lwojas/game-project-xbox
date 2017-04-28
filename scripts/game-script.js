@@ -1,4 +1,4 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
 	
 	setTimeout(function() { 
 		window.countFPS = (function () {
@@ -27,10 +27,10 @@ $(document).ready(function() {
 	    });
 	}());
 		}, 500);
-});
+});*/
 
 
-var game = new Phaser.Game(1280, 720, Phaser.CANVAS, '', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(1280, 720, Phaser.CANVAS, '', { preload: preload, create: create, update: update, render: render });
 
 function preload() {
 	game.load.image('sky', 'assets/sky.png');
@@ -48,11 +48,10 @@ var uiMessage;
 var scoreText;
 
 function create() {
+	game.time.advancedTiming = true;
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 
 	game.add.sprite(0,0, 'sky');
-
-	game.add.sprite(0, 0, 'star');
 
 	platforms = game.add.group();
 	platforms.enableBody = true;
@@ -90,7 +89,7 @@ function create() {
 	uiMessage = game.add.sprite(537, 280, 'sign');
 	uiMessage.visible = false;
 
-	scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#FFF' });
+	//scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#FFF' });
 }
 
 var isJumping = false
@@ -136,4 +135,8 @@ function update() {
 	
 }
 
+
+function render() {
+	game.debug.text(game.time.fps, 2, 14, "#00ff00");
+}
 
