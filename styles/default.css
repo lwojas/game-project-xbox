@@ -1,0 +1,17 @@
+body {
+	margin: 0;
+}
+
+canvas {
+	position: absolute;
+	left: 0;
+	top : 0;
+	width: 100%;
+	height: auto;
+}
+
+h1 {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	position: relative;
+	color: white;
+}
