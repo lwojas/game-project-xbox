@@ -1,17 +1,20 @@
 var hasGP = false;
-var gp = navigator.getGamepads()[0];
-console.log(gp);
+var gp;
 
 
-
-function gameLoop() {
-    //hasGP = true;
+$(document).ready(function() {
     gp = navigator.getGamepads()[0];
-    setTimeout(function() {
-        hasGP = true;
-       //console.log(gp);
-    }, 500);
-    //console.log(gamepads);
-    window.requestAnimationFrame(gameLoop);
-    }
-gameLoop();
+    function gameLoop() {
+        //hasGP = true;
+        gp = navigator.getGamepads()[0];
+        if (!hasGP) {
+            setTimeout(function() {
+                hasGP = true;
+               //console.log(gp);
+            }, 500);
+        };
+        //console.log(gamepads);
+        window.requestAnimationFrame(gameLoop);
+        }
+    gameLoop();
+});
