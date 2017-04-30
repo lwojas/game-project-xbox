@@ -46,8 +46,13 @@ var platforms;
 var player;
 var uiMessage;
 var scoreText;
+var gp;
+var hasGP = true;
 
 function create() {
+	game.input.gamepad.start();
+	
+
 	game.time.advancedTiming = true;
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -96,20 +101,21 @@ var isJumping = false
 
 function update() {
 	var hitPlatform = game.physics.arcade.collide(player, platforms);
-
+	gp = game.input.gamepad.pad1;
 	player.body.velocity.x = 0;
 	if (hasGP) {
-		if (gp.buttons[14].pressed) {
+		if (gp.isDown(Phaser.Gamepad.BUTTON_14)) {
 			
 			player.body.velocity.x = -250;
 
 			player.animations.play('left');
 
-		} else if (gp.buttons[15].pressed) {
+		} else if (gp.isDown(Phaser.Gamepad.BUTTON_15)) {
 			
 			player.body.velocity.x = 250;
 
 			player.animations.play('right');
+
 		} else {
 			if (!isJumping) {
 				// player.animations.stop();
@@ -119,7 +125,7 @@ function update() {
 			};
 		};
 
-		if (gp.buttons[0].pressed && player.body.touching.down && hitPlatform) {
+		if (gp.isDown(Phaser.Gamepad.BUTTON_0) && player.body.touching.down && hitPlatform) {
 			isJumping = true;
 			player.body.velocity.y = -400;
 		} else if (player.body.touching.down && hitPlatform) {
