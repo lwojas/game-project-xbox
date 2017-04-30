@@ -28,7 +28,7 @@
 	}());
 		}, 500);
 });*/
-
+navigator.gamepadInputEmulation = "gamepad";
 
 var game = new Phaser.Game(1280, 720, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });
 
