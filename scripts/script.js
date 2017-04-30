@@ -1,8 +1,8 @@
-var hasGP = false;
-var gp;
+//var hasGP = false;
+//var gp;
 
 
-$(document).ready(function() {
+/*$(document).ready(function() {
     gp = navigator.getGamepads()[0];
     function gameLoop() {
         //hasGP = true;
@@ -17,4 +17,4 @@ $(document).ready(function() {
         window.requestAnimationFrame(gameLoop);
         }
     gameLoop();
-});
+});*/

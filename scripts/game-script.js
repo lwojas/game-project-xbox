@@ -30,14 +30,13 @@
 });*/
 
 
-var game = new Phaser.Game(1280, 720, Phaser.CANVAS, '', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(1280, 720, Phaser.AUTO, '', { preload: preload, create: create, update: update, render: render });
 
 function preload() {
 	game.load.image('sky', 'assets/sky.png');
 	game.load.image('ground', 'assets/ground.png');
     game.load.image('platform', 'assets/platform2.png');
     game.load.image('star', 'assets/star.png');
-    // game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
     game.load.spritesheet('dude', 'assets/hero.png', 32, 32);
     game.load.image('sign', 'assets/sign.png');
 }
@@ -83,9 +82,6 @@ function create() {
 	player.body.bounce.y = 0;
 	player.body.gravity.y = 400;
 	player.body.collideWorldBounds = true;
-
-	// player.animations.add('left', [0, 1, 2, 3], 10, true);
-	// player.animations.add('right', [5, 6, 7, 8], 10, true);
 
 	player.animations.add('left', [7, 8, 9, 10], 10, true);
 	player.animations.add('right', [8, 9, 10, 11], 10, true);
