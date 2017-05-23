@@ -3,11 +3,11 @@ body {
 }
 
 canvas {
-	position: absolute;
+	
 	left: 0;
 	top : 0;
-	width: 100% !important;
-	height: auto !important;
+	/* width: 160px !important;
+	height: auto !important; */
 }
 
 h1 {
